@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GAM_Complex_Op" Class="UserDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="COMET.ApplicationLog" Member="ApplicationLogs">
+    <Type Name="ApplicationLog">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Application_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActionTaken" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Association Name="XXHR_ApplicationLog" Member="XXHR" ThisKey="EmployeeID" OtherKey="EMPLOYEE_ID" Type="XXHR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.ApplicationErrors2" Member="ApplicationErrors2s">
+    <Type Name="ApplicationErrors2">
+      <Column Name="ApplicationName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PageName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="StepName" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ErrorTime" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ErrorCode" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="ErrorDetails" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="XXHR_ApplicationErrors2" Member="XXHR" ThisKey="EmployeeID" OtherKey="EMPLOYEE_ID" Type="XXHR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.Application_Roles" Member="Application_Roles">
+    <Type Name="Application_Role">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="AuthLevel" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="AckVersion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="APP_AUTH_DESCRIPTION_Application_Role" Member="APP_AUTH_DESCRIPTION" ThisKey="AuthLevel" OtherKey="Auth_Level" Type="APP_AUTH_DESCRIPTION" IsForeignKey="true" />
+      <Association Name="XXHR_Application_Role" Member="XXHR" ThisKey="EmployeeID" OtherKey="EMPLOYEE_ID" Type="XXHR" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.APP_AUTH_DESCRIPTION" Member="APP_AUTH_DESCRIPTIONs">
+    <Type Name="APP_AUTH_DESCRIPTION">
+      <Column Name="Auth_Level" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Auth_Description" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Association Name="APP_AUTH_DESCRIPTION_Application_Role" Member="Application_Roles" ThisKey="Auth_Level" OtherKey="AuthLevel" Type="Application_Role" />
+    </Type>
+  </Table>
+  <Table Name="COMET.XXHR" Member="XXHRs">
+    <Type Name="XXHR">
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SYS_USER" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="OFFICE_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STREET_ADDRESS" Type="System.String" DbType="VarChar(150)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTALCODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="STATE_CD" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="HOME_DIRECTORY" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="EMAIL_ADDRESS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MEMBER_OF" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HIRE_DATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TERM_DATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="LAST_UPDATED" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DISPLAY_NAME" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Association Name="XXHR_ApplicationLog" Member="ApplicationLogs" ThisKey="EMPLOYEE_ID" OtherKey="EmployeeID" Type="ApplicationLog" />
+      <Association Name="XXHR_ApplicationErrors2" Member="ApplicationErrors2s" ThisKey="EMPLOYEE_ID" OtherKey="EmployeeID" Type="ApplicationErrors2" />
+      <Association Name="XXHR_Application_Role" Member="Application_Role" ThisKey="EMPLOYEE_ID" OtherKey="EmployeeID" Type="Application_Role" Cardinality="One" />
+    </Type>
+  </Table>
+  <Table Name="COMET.APP_USAGE_W_GROUP" Member="APP_USAGE_W_GROUPs">
+    <Type Name="APP_USAGE_W_GROUP">
+      <Column Name="GROUPING" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="WeekStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Logs" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.APP_LOG_W_GROUP" Member="APP_LOG_W_GROUPs">
+    <Type Name="APP_LOG_W_GROUP">
+      <Column Name="LogID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Application_Name" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SysUser" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="LogTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ActionTaken" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="GROUPING" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Function Name="COMET.XXHR_HEIRARCHY" Method="XXHR_HEIRARCHY" IsComposable="true">
+    <Parameter Name="User" Parameter="user" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType Name="XXHR_HEIRARCHYResult">
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SYS_USER" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER1_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MANAGER1_NT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER1" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER1_JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER1_EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER2_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MANAGER2_NT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER2" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER2_JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER2_EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER3_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MANAGER3_NT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER3" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER3_JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER3_EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER4_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MANAGER4_NT" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER4" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER4_JOB_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MANAGER4_EMAIL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="DEPARTMENT" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="OFFICE_NAME" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="STREET_ADDRESS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CITY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POSTALCODE" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="STATE_CD" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="HOME_DIRECTORY" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="EMAIL_ADDRESS" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MEMBER_OF" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="HIRE_DATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TERM_DATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Column Name="TELEPHONE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="MOBILE" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>

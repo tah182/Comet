@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GAM_Complex_Op" Class="BulkDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="COMET.Z_BULK_FROM_EXCEL_STAGE" Member="Z_BULK_FROM_EXCEL_STAGEs">
+    <Type Name="Z_BULK_FROM_EXCEL_STAGE">
+      <Column Name="reference_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="bldg_clli" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="swc_clli" Type="System.String" DbType="VarChar(8)" CanBeNull="true" />
+      <Column Name="npa" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="nxx" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="address" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" />
+      <Column Name="city" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="state_code" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="postal_code" Type="System.String" DbType="VarChar(9)" CanBeNull="true" />
+      <Column Name="product" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="service_type" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="transaction_type" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="NNI_vendor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="[service_bandwidth/CP_port_speed]" Member="service_bandwidth_CP_port_speed" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="form_factor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="EVC" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="service_term" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="class_of_service" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="solution_type" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="include_avoid_single_vendor" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="max_sol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="country_code" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="protection" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="co_termination" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="avoid_override_term" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="include_unapproved_ilec" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="max_asr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="avoid_typeII" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="RequestID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="GoogleLat" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="GoogleLng" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="RequestDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.BULK_ADDRESS_HISTORICAL" Member="BULK_ADDRESS_HISTORICALs">
+    <Type Name="BULK_ADDRESS_HISTORICAL">
+      <Column Name="RequestID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="reference_id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="returnKey" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="LATA" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="RequestAddress" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RequestCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RequestState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RequestPostalCode" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="RequestLat" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="RequestLng" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="MSOVendor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MSOAddress" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MSOCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MSOState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CLECVendor" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="CLECType" Type="System.String" DbType="VarChar(25)" CanBeNull="true" />
+      <Column Name="CLECAddress" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CLECCity" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="CLECState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Distance" Type="System.Decimal" DbType="Decimal(10,7)" CanBeNull="true" />
+      <Column Name="EntityLineItemID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BandwidthDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ProductDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="mrUSD" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Vendor" Type="System.String" DbType="VarChar(1000)" CanBeNull="true" />
+      <Column Name="IncrementalNRCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="StreetAddress" Type="System.String" DbType="NVarChar(305)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="" Member="VENDORS_BY_CLLIs">
+    <Type Name="VENDORS_BY_CLLI" Id="ID1">
+      <Column Name="LATA" Type="System.String" CanBeNull="false" />
+      <Column Name="EnteredClli" Type="System.String" CanBeNull="false" />
+      <Column Name="EnteredStreet" Type="System.String" CanBeNull="false" />
+      <Column Name="EnteredCity" Type="System.String" CanBeNull="false" />
+      <Column Name="EnteredState" Type="System.String" CanBeNull="false" />
+      <Column Name="EnteredLat" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="EnteredLng" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="Vendor" Type="System.String" CanBeNull="false" />
+      <Column Name="VendorType" Type="System.String" CanBeNull="false" />
+      <Column Name="AddressClli" Type="System.String" CanBeNull="false" />
+      <Column Name="VendorStreet" Type="System.String" CanBeNull="false" />
+      <Column Name="VendorCity" Type="System.String" CanBeNull="false" />
+      <Column Name="VendorState" Type="System.String" CanBeNull="false" />
+      <Column Name="VendorLat" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="VendorLng" Type="System.Decimal" CanBeNull="false" />
+      <Column Name="Miles" Type="System.Decimal" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="COMET.BULK_EXCEL_IMPORT" Method="BULK_EXCEL_IMPORT">
+    <Parameter Name="Distance" Parameter="distance" Type="System.Decimal" DbType="Decimal(5,2)" />
+    <Parameter Name="TopCount" Parameter="topCount" Type="System.Int32" DbType="Int" />
+    <Parameter Name="RequestID" Parameter="requestID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="COMET.VENDORS_BY_CLLI" Method="VENDORS_BY_CLLI">
+    <Parameter Name="ClliString" Parameter="clliString" Type="System.String" DbType="VarChar(MAX)" />
+    <Parameter Name="Distance" Parameter="distance" Type="System.Decimal" DbType="Decimal(6,3)" />
+    <Parameter Name="TopCount" Parameter="topCount" Type="System.Int32" DbType="Int" />
+    <ElementType IdRef="ID1" />
+  </Function>
+</Database>

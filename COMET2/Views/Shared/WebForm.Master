@@ -1,0 +1,107 @@
+﻿<%@Import Namespace="COMET.Model.Domain"%>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="WebForm.master.cs" Inherits="COMET.Views.Shared.WebForm" %>
+<!DOCTYPE html>
+<html lang="en">
+    <head runat="server">
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <%: Styles.Render("~/Content/themes/base/jquery-ui.css") %>
+        <%: Styles.Render("~/Content/Site.css") %>
+        <asp:ContentPlaceHolder ID="head" runat="server" />
+        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+        <link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" runat="server" />
+        <meta name="viewport" content="width=device-width" />
+    <meta name="description" content="AMO Bi Graphical User Interface Tool" />
+</head>
+    <body>
+        <div id="body">
+            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+            <section class="content-wrapper main-content clear-fix">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </section>
+        </div>
+        <header>
+            <div class="float-left"><table><tr><td>
+                <div id="site-title" class="action add" title="Home"></div>
+                </td>
+                <td style="padding-left: 10px">
+                    <span class="username" title="<%: ((IUser)Session["User"]).EnglishName %>">
+                        <%: ((IUser)Session["User"]).EnglishName %>
+                        <!-- <%: ((IUser)Session["User"]).FirstName.Substring(0, 1) + ((IUser)Session["User"]).LastName.Substring(0, 1) %> -->
+                    </span>
+                    <p class="site-title"><asp:ContentPlaceHolder ID="PageTitle" runat="server" /></p></td>
+                    <td><div id="sawNewVersion" style="display: none;"><%: ((IUser)Session["User"]).AcknowledgedUpdateNotes %></div></td>
+                </tr></table>
+            </div>
+            <nav>
+                <ul id="menu">
+                    <li><asp:HyperLink ID="Index" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=main, action=index%>" ToolTip="Providers Search">Planning</asp:HyperLink></li>
+                    <li><asp:HyperLink ID="E911" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=E911, action=index%>" ToolTip="911 Planning">911</asp:HyperLink></li>
+                    <li class="pull-down"><a href="#">Tools</a>
+                        <div>
+                            <ul>
+                                <li><asp:HyperLink ID="NNICalc" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=NNI_Calc, action=Index%>" ToolTip="NNI Entrance Cost Calculator">NNI Calc</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="BulkClli" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=BulkClli, action=Index%>" ToolTip="Bulk Clli Lookup Tool">Bulk Clli Lookup</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="BulkAddress" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=Bulk, action=Index%>" ToolTip="Bulk Address Import / Export Tool">Bulk Address Lookup</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="OrgChart" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=OrgChart, action=Index%>" ToolTip="Employee Search and Org Chart">Employee Search</asp:HyperLink></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <!--
+                    <li><a href="#" title="SSRS Reports">Reports</a>
+                        <ul>
+                            <% if (((COMET.Model.Domain.IUser)Session["User"]).UserType.authLevel <= 0) { %>
+                            <li><asp:HyperLink ID="ReportMonitor" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=0%>" ToolTip="Report Monitor SSRS">Report Monitor</asp:HyperLink></li>
+                            <% } %>
+                            <li><asp:HyperLink ID="EUBDetail" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=1%>" ToolTip="EUB OffOn Detail Report">EUB OFFON Report Detail</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="EUBSummary" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=2%>" ToolTip="EUB OffOn Summary Reporth">EUB OFFON Report Summary</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="GLDetail" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=3%>" ToolTip="GL Code Detail Report">GL Code Detail</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="GLSummary" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=4%>" ToolTip="GL Code Summary Report">GL Code Summary</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="MilDetail" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, repotypertType=5%>" ToolTip="Mileage Reduction Detail Report">Mileage Reduction Detail</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="MilSummary" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=6%>" ToolTip="Mileage Reduction Summary Report">Mileage Reduction Summary</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="NearDetail" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=7%>" ToolTip="Nearnet Detail Report">NEARNET Detail</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="NearSummary" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=IndexIndex, type=8%>" ToolTip="NearNet Summary Report">NEARNET Summary</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="NNI" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Reports, type=9%>" ToolTip="NNI Report">NNI</asp:HyperLink></li>
+                            <li><asp:HyperLink ID="TopTwenty" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=SSRSReports, action=Index, type=10%>" ToolTip="Top 20 Channel Detail">Top 20 Channel</asp:HyperLink></li>
+                        </ul>
+                    </li>
+                        -->
+                    <li id="consoleAnchor" class="pull-down"><asp:HyperLink ID="Console" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=Console, action=index%>" ToolTip="Request Console">Requests</asp:HyperLink>
+                        <div>
+                            <ul>
+                                <% if (((IUser)Session["User"]).isBIManager()) { %>
+                                <li><asp:HyperLink ID="ManagerDashboard" runat="server" NavigateUrl="<%$RouteUrl:routename=Console_Manager, action=Dashboard%>" ToolTip="Manager Console">Manager Dashboard</asp:HyperLink></li>
+                                <% } %>
+                                <li><asp:HyperLink ID="Dashboard" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=Console, action=index%>" ToolTip="Request Console">Dashboard</asp:HyperLink></li>
+                                <li><asp:HyperLink ID="NewRequest" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=Console, action=newrequest%>" ToolTip="New Request">New Request</asp:HyperLink></li>
+                            </ul>
+                        </div>
+                    </li>
+                    <% if (((IUser)Session["User"]).UserType.authLevel <= 1) { %>
+                    <li class="pull-down"><a href="#" title="Manage Comet">Manage</a>
+                        <div>
+                            <ul>
+                                <li><asp:HyperLink ID="Activity" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=Activity, action=Index%>" ToolTip="Activity Log">Activity</asp:HyperLink></li>
+                                <% if (((IUser)Session["User"]).UserType.authLevel <= 0) { %>
+                                    <li><asp:HyperLink ID="Errors" runat="server" NavigateUrl="<%$RouteUrl:routename=default, controller=main, action=Errors%>" ToolTip="Error Log">Errors</asp:HyperLink></li>
+                                    <li><a href="javascript:void(0)" id="refresh">Refresh Data</a></li>
+                                <% } %>
+                            </ul>
+                        </div>
+                    </li>
+                    <% } %>
+                </ul>
+            </nav>
+        </header>
+        <div id="showNav"></div>
+        <div id="loadCover" class="loading" style="z-index: -10; opacity: 0;"></div>
+        <div id="loadImage" style="z-index: -10; opacity: 0;">
+            <img alt="please wait" src="~/Images/ajax-loader.gif" runat="server" />
+            <br />Please wait...
+        </div>
+        <%: Scripts.Render("~/Scripts/GeneralScripts/jquery-2.1.0.min.js") %>
+        <%: Scripts.Render("~/Scripts/GeneralScripts/jquery-ui.min.js") %>
+        <%: Scripts.Render("~/Scripts/PageScripts/Global.js") %>
+        <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
+    </body>
+</html>

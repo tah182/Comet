@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Bulk">
+  <DataContextMoniker Name="/BulkDataContext" />
+  <nestedChildShapes>
+    <classShape Id="67fa3b65-5acc-489b-8ac4-8e964831f70a" absoluteBounds="0.5, 0.5, 2, 6.9630354817708326">
+      <DataClassMoniker Name="/BulkDataContext/Z_BULK_FROM_EXCEL_STAGE" />
+      <nestedChildShapes>
+        <elementListCompartment Id="763e3f29-3b2d-4f33-b367-12271d6bf7eb" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 6.403035481770833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="12800560-6d10-4ad4-8e5f-a17c5177ea85" absoluteBounds="2.75, 0.5, 2, 6.3861311848958326">
+      <DataClassMoniker Name="/BulkDataContext/BULK_ADDRESS_HISTORICAL" />
+      <nestedChildShapes>
+        <elementListCompartment Id="e94cd5df-d5d4-41b2-8f9b-640e514dd542" absoluteBounds="2.7649999999999997, 0.96, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="f7513884-b8e1-493f-89f7-e3c29db1b14d" absoluteBounds="4.875, 0.5, 2, 3.8862125651041666">
+      <DataClassMoniker Name="/BulkDataContext/VENDORS_BY_CLLI" />
+      <nestedChildShapes>
+        <elementListCompartment Id="cbb0afab-9852-46b4-891b-9ca0f6ab4882" absoluteBounds="4.89, 0.96, 1.9700000000000002, 3.3262125651041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

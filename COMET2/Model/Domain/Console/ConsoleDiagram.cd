@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="COMET.Model.Domain.Console.Request">
+    <Position X="4.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAACAAAAAIDAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Request.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Employee">
+    <Position X="8.5" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.RequestStatus">
+    <Position X="2" Y="3.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAIAAAAAAAAAAgAAAAAAAgIABBAAA=</HashCode>
+      <FileName>Model\Domain\Console\RequestStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Factory.ConsoleFactory">
+    <Position X="4.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Business\Factory\ConsoleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Service.Console.EmployeeSvcImplDB">
+    <Position X="8.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAAAIAIAAAAAAAAQUAAAAAAAAAFAAAAY=</HashCode>
+      <FileName>Model\Business\Service\Console\EmployeeSvcImplDB.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.AEmployee">
+    <Position X="10.25" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAACAAAAAgAAAAAAAAAAAAIEgAAQA=</HashCode>
+      <FileName>Model\Domain\Console\AEmployee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.GroupManager">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAACAAAAAQAAAAAAAAAAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Model\Domain\Console\GroupManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Director" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Manager.Console.EmployeeMgr">
+    <Position X="6.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>Model\Business\Manager\Console\EmployeeMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="COMET.Model.Domain.Console.IRequest" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAACAAAAAIDAAAAAAAAAABAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\IRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Domain.Console.IEmployee" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAAAAAAAAgAAAAAAAAAAAAAEgAAAA=</HashCode>
+      <FileName>Model\Domain\Console\IEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Business.Service.Console.IEmployeeSvc" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAAAAIAIAAAAAAAAAEAAAAAAAAAEAAAAA=</HashCode>
+      <FileName>Model\Business\Service\Console\IEmployeeSvc.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

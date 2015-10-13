@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GAM_Complex_Op" Class="ReferenceDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="LOC.LKP_POSTAL_CD_STATE" Member="LKP_POSTAL_CD_STATEs">
+    <Type Name="LKP_POSTAL_CD_STATE">
+      <Column Name="POSTAL_CODE" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="STATE_CD" Type="System.String" DbType="VarChar(35)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="VENDOR.CABLE_OPERATOR_AREAS_FCC_EXCEL" Member="CABLE_OPERATOR_AREAS_FCC_EXCELs">
+    <Type Name="CABLE_OPERATOR_AREAS_FCC_EXCEL">
+      <Column Name="[Community Unit]" Member="Community_Unit" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Community Name]" Member="Community_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Municipality Type]" Member="Municipality_Type" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[County Name]" Member="County_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Legal Name]" Member="Legal_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Assumed Name]" Member="Assumed_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[CUID Status]" Member="CUID_Status" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="status" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="[Merged CUID]" Member="Merged_CUID" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="PSID" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Date Operational]" Member="Date_Operational" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[PO Box]" Member="PO_Box" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="[Zip Code]" Member="Zip_Code" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CITY_DERIVED" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="STATE_DERIVED" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="CITY_STATE_DERIVED" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="CABLE_OPERATOR_AREAS_FCC_EXCEL_LKP_VENDOR_TYP_XREF_EXCEL" Member="LKP_VENDOR_TYP_XREF_EXCELs" ThisKey="Legal_Name" OtherKey="UPPER_VENDOR_NAME" Type="LKP_VENDOR_TYP_XREF_EXCEL" />
+    </Type>
+  </Table>
+  <Table Name="VENDOR.LKP_VENDOR_TYP_XREF_EXCEL" Member="LKP_VENDOR_TYP_XREF_EXCELs">
+    <Type Name="LKP_VENDOR_TYP_XREF_EXCEL">
+      <Column Name="UPPER_VENDOR_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VENDOR_TYPE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="VENDOR_NORM_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="XREF_PARENT_VENDOR" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="SOURCE" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Association Name="CABLE_OPERATOR_AREAS_FCC_EXCEL_LKP_VENDOR_TYP_XREF_EXCEL" Member="CABLE_OPERATOR_AREAS_FCC_EXCEL" ThisKey="UPPER_VENDOR_NAME" OtherKey="Legal_Name" Type="CABLE_OPERATOR_AREAS_FCC_EXCEL" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="COMET.ReferenceTableUpdates" Member="ReferenceTableUpdates">
+    <Type Name="ReferenceTableUpdate">
+      <Column Name="SDP_UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="VENDOR_XREF_UPDATED" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="LOC.STATES_ABBREVIATION" Member="STATES_ABBREVIATIONs">
+    <Type Name="STATES_ABBREVIATION">
+      <Column Name="id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="abbreviation" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="country" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="type" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="sort" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="status" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="occupied" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="notes" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="fips_state" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="assoc_press" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="standard_federal_region" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="census_region" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="census_region_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="census_division" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="census_division_name" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="circuit_court" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="VENDOR.LKP_VENDOR_LOCKED" Member="LKP_VENDOR_LOCKEDs">
+    <Type Name="LKP_VENDOR_LOCKED">
+      <Column Name="VENDOR_NORM_NAME" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="XREF_PARENT_VENDOR" Type="System.String" DbType="NVarChar(150) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTACT_NAME" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTACT_OFFICE_PHONE" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="CONTACT_MOBLE_PHONE" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="CONTACT_EMAIL" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+    </Type>
+  </Table>
+</Database>

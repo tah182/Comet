@@ -1,0 +1,175 @@
+﻿@smallCorners: 7px;
+@beige: #fcf8e2;
+@linkColor: #009aff;
+@htmlBackground: #e2e2e2;
+@linkHover: #c45500;
+@errorRed: #e80c4d;
+@darkBack: #494949;
+
+.TextOverflow-Ellipse(@type: ellipsis) {
+    text-wrap: none;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: @type;
+    -ms-text-overflow: @type;
+    text-overflow: @type;
+}
+
+.RoundedShape(@radius: @smallCorners) {
+    border-radius: @radius;
+}
+
+.RoundBottomCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.RoundLeftCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.RoundRightCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.RoundTopCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.Border(@color: @darkBack, @thickness: 2px) {
+    border: solid @color @thickness;
+}
+
+.Transition(@time: 0.3s, @type: all, @transition: ease-in-out, @delay: 0s) when not (@type = true) {
+    -webkit-transition: @type @time @transition;
+    -moz-transition: @type @time @transition;
+    -o-transition: @type @time @transition;
+    transition: @type @time @transition;
+    .TransitionDelay(@delay);
+}
+
+.Transition(@time: 300ms, @type: all, @transition: ease-in-out, @delay: 0ms) when (@type = true) {
+    -webkit-transition: -webkit-transform @time @transition;
+    -moz-transition: -moz-transform @time @transition;
+    -o-transition: -o-transform @time @transition;
+    transition: transform @time @transition;
+    .TransitionDelay(@delay);
+}
+
+.TransitionDelay(@delay: 0.5s) {
+    -webkit-transition-delay: @delay;
+    -moz-transition-delay: @delay;
+    -o-transition-delay: @delay;
+    transition-delay: @delay;
+}
+
+.Translate(@left: -2px, @top: -2px) {
+    -webkit-transform: translate(@left, @top);
+    -o-transform: translate(@left, @top);
+    -moz-transform: translate(@left, @top);
+    -ms-transform: translate(@left, @top);
+    transform: translate(@left, @top);
+}
+
+.Focus() {
+    box-shadow: 0 0 2px rgba(81, 203, 238, 1);
+    /*padding: 3px 0 3px 0px;*/
+    border: 1px solid rgba(81, 203, 238, 1);
+}
+
+.InputTransitions() {
+    padding: 4px 5px;
+    .Transition(0.2s);
+    &:focus {
+        border: 1px solid rgba(81, 203, 238, 1);
+    }
+}
+
+.Button() {
+    background-color: #eee;
+    color: @linkColor;
+    border: 0 none;
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 3px 5px;
+    margin: 0 5px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.37);
+    cursor: pointer;
+    .Transition(0.2s);
+    &:hover:enabled {
+        background-color: #ebebeb;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    &:active:enabled {
+        box-shadow: inset 0 0 2px white;
+    }
+
+    &:disabled {
+        display: none;
+    }
+}
+
+.Link() {
+    color: @linkColor;
+    outline: none;
+    padding-left: 3px;
+    padding-right: 3px;
+    text-decoration: underline;
+    cursor: pointer;
+    &:link,
+    &:visited,
+    &:active {
+        color: @linkColor
+    }
+    &:hover {
+        color: @linkHover;
+    }
+}
+
+.HoverToolTip() {
+    &:before {
+        bottom: 100%;
+        border: solid transparent;
+        visibility: hidden;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        border-bottom-color: #494949;
+        border-width: 7px;
+
+        left: 50%;
+        -webkit-transform: translate(-50%, 22px);
+        -o-transform: translate(-50%, 22px);
+        -moz-transform: translate(-50%, 22px);
+        -ms-transform: translate(-50%, 22px);
+        transform: translate(-50%, 22px);
+    }
+
+    &:after {
+        content: attr(tooltip);
+        visibility: hidden;
+        padding: 4px 8px;
+        color: #fff;
+        background-color: @darkBack;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+        -o-transform: translateX(-50%);
+        -moz-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+        transform: translateX(-50%);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+        .RoundedShape(2px);
+        z-index: 30;
+    }
+}

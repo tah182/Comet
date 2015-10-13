@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<config>
+  <ErrorEmail domain="@level3.com">
+    <to>takashi.tatsumoto</to>
+    <to>yonghai.qian</to>
+    <to>holly.grodsky</to>
+  </ErrorEmail>
+  <Email domain="@level3.com">
+    <to>takashi.tatsumoto</to>
+    <to>amo_datateam</to>
+  </Email>
+  <TicketEmail domain="@level3.com">
+    <to>timothy.day</to>
+    <to>amo_datateam</to>
+  </TicketEmail>"
+  <Console>
+    <emailFrom>BI-Console@Amo-DataTeam.com</emailFrom>
+    <BIManagerID>9218</BIManagerID>
+    <HoursCostMultiplierInternal>45</HoursCostMultiplierInternal>
+    <HoursCostMultiplierExternal>35</HoursCostMultiplierExternal>
+    <active>true</active>
+  </Console>
+</config>

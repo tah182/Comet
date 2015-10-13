@@ -1,0 +1,178 @@
+﻿@linkHover: #c45500;
+@blueBack: #68a3b0;
+@darkBack: #4d4d4d;
+@smallCorners: 4px;
+@largeCorners: 9px;
+
+.TextOverflow-Ellipse(@type: ellipsis) {
+    text-wrap: none;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: @type;
+    -ms-text-overflow: @type;
+    text-overflow: @type;
+}
+
+.Transition(@time: 300ms, @type: all, @transition: ease-in-out, @delay: 0ms) when (@type = true) {
+    -webkit-transition: -webkit-transform @time @transition;
+    -moz-transition: -moz-transform @time @transition;
+    -o-transition: -o-transform @time @transition;
+    transition: transform @time @transition;
+    .TransitionDelay(@delay);
+}
+
+.TransitionDelay(@delay: 0.5s) {
+    -webkit-transition-delay: @delay;
+    -moz-transition-delay: @delay;
+    -o-transition-delay: @delay;
+    transition-delay: @delay;
+}
+
+.Translate(@left: -2px, @top: -2px) {
+    -webkit-transform: translate(@left, @top);
+    -o-transform: translate(@left, @top);
+    -moz-transform: translate(@left, @top);
+    -ms-transform: translate(@left, @top);
+    transform: translate(@left, @top);
+}
+
+.RoundedShape(@radius: @smallCorners) {
+    border-radius: @radius;
+}
+
+.RoundBottomCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.RoundRightCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.RoundRightCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.RoundTopCorners(@radius: @smallCorners) {
+    .RoundedShape(@radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.MenuAfter() {
+    background: linear-gradient(lighten(@blueBack, 30%), lighten(@blueBack, 50%) 40%, lighten(@blueBack, 30%) 70%);
+    overflow: visible;
+    z-index: 2;
+    position: absolute;
+    .RoundRightCorners();
+}
+
+div {
+    &#content {
+        position: absolute;
+        top: 15px;
+        bottom: 0;
+        left: 0;
+        right: 10px;
+        padding: 5px 10px 0 10px;
+        margin-top: 20px;
+
+        > div {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+
+            &#leftContent {
+                padding-top: 15px;
+                width: 250px;
+            }
+
+            &#rightContent {
+                left: 250px;
+                right: 0;
+                margin-left: 22px;
+                overflow-y: auto;
+                padding-bottom: 50px;
+            }
+
+            &#menu {
+                position: absolute;
+                left: 0;
+                top: -35px;
+                background-color: white;
+                padding: 0;
+                width: 262px;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+
+                & ul {
+                    position: relative;
+                    list-style: none;
+                    padding: 1px 0 0 0;
+                    margin: 0;
+
+                    & > li {
+                        padding: 7px 15px;
+                        font-weight: bold;
+                        font-size: 1.2em;
+                        color: lighten(@darkBack, 5%);
+                        border-bottom: 1px solid #bbb;
+                        border-collapse: collapse;
+                        .TextOverflow-Ellipse();
+                        cursor: pointer;
+
+                        &:first-of-type {
+                            border-top: 1px solid #bbb;
+                        }
+
+                        &:hover,
+                        &:focus {
+                            color: white;
+
+                            &:after {
+                                .Translate(8px, 0);
+                                .Transition(150ms, true, ease-in-out, 0s);
+                                opacity: 1;
+                                z-index: 2;
+                            }
+                        }
+
+                        &:active:after {
+                            color: @linkHover;
+                            background: linear-gradient(lighten(@blueBack, 10%), lighten(@blueBack, 30%) 40%, lighten(@blueBack, 10%) 70%);
+                        }
+
+                        &.selected {
+                            padding: 6px 15px 7px 15px;
+                            margin-left: 8px;
+                            min-width: 230px;
+                            color: @linkHover;
+                            .RoundRightCorners();
+                            background: linear-gradient(lighten(@blueBack, 10%), lighten(@blueBack, 30%) 40%, lighten(@blueBack, 10%) 70%);
+                        }
+
+                        &:after {
+                            color: lighten(@darkBack, 5%);
+                            padding: 6px 15px 7px 15px;
+                            .MenuAfter();
+                            box-shadow: 0 1px 3px #222;
+                            content: attr(title);
+                            left: 0;
+                            margin-top: -7px;
+                            opacity: 0;
+                            min-width: 230px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

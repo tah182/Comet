@@ -1,0 +1,267 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="COMET.Model.Domain.Console.Request">
+    <Position X="4.75" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAACAAAAAAAAAABAAAAABAQgBAAAAAABBACAAQA=</HashCode>
+      <FileName>Model\Domain\Console\Request.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Employee">
+    <Position X="9.25" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAAAAAAAAABAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.RequestStatus">
+    <Position X="2.5" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAIAAAAAAAAAAgAAAAAAAgIABBAAA=</HashCode>
+      <FileName>Model\Domain\Console\RequestStatus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Factory.ConsoleFactory">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABACAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Business\Factory\ConsoleFactory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Service.Console.EmployeeSvcImplDB">
+    <Position X="8.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARgAAAAAAAAAAAIAICAAAAAAAQ0AAAAAAAAAFCAABY=</HashCode>
+      <FileName>Model\Business\Service\Console\EmployeeSvcImplDB.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.AEmployee">
+    <Position X="11" Y="2.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAACAAAAAgAAAAAAAAAAAAAEgAAQA=</HashCode>
+      <FileName>Model\Domain\Console\AEmployee.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.GroupManager">
+    <Position X="11" Y="6" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AQQAAAAAAAAACAAAAAQAAAAAAAABAAAAAQAAAAEAAAA=</HashCode>
+      <FileName>Model\Domain\Console\GroupManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Director" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Director.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Manager.Console.EmployeeMgr">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAiAAEEAAAAgAAAAAAAAAgAAEAIABAAAJA=</HashCode>
+      <FileName>Model\Business\Manager\Console\EmployeeMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.ALookupActive" Collapsed="true">
+    <Position X="0.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAgAAAgCAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\ALookupActive.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.ALookupSorted" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAgCAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\ALookupSorted.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.SupportArea">
+    <Position X="12.75" Y="1.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAgAAAAAAAAEAAABAAAAAABACAUAAAA=</HashCode>
+      <FileName>Model\Domain\Console\SupportArea.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.ValueDriver" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\ValueDriver.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.RequestType" Collapsed="true">
+    <Position X="0.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\RequestType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Business.Manager.Console.LookupMgr" Collapsed="true">
+    <Position X="0.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAIAAAAsAAAAAAAAAAMBAIgAIAAA=</HashCode>
+      <FileName>Model\Business\Manager\Console\LookupMgr.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.ARequest">
+    <Position X="4.75" Y="0.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Properties" Collapsed="true" />
+      <Compartment Name="Methods" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>kEDQAAEAIgAikISCICCEEAAogCBAAEAoAAAgIACAFCA=</HashCode>
+      <FileName>Model\Domain\Console\ARequest.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Group" Collapsed="true">
+    <Position X="2.5" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Group.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.Project" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAgAAAAAAAAAAAAAABAAAAAAgAAABAACAAAA=</HashCode>
+      <FileName>Model\Domain\Console\Project.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.Console.SupportUnit" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\SupportUnit.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.AProjectView" Collapsed="true">
+    <Position X="3.25" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AGDAAQEAAgAiEASgABCAEAAAAABAAFCAQQAgACAAACA=</HashCode>
+      <FileName>Model\Domain\View\Console\AProjectView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.ARequestView" Collapsed="true">
+    <Position X="4.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAkIAAAgAAAAAAACBEAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\View\Console\ARequestView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.ElementView" Collapsed="true">
+    <Position X="6.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAQAAAAAAAAQAAAAAAgAAAAAAgRAAEAEAA=</HashCode>
+      <FileName>Model\Domain\View\Console\ElementView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.NewRequestModel" Collapsed="true">
+    <Position X="0.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AECAAAAAAAAAAIQGACAAAAAAAABEAAAgAAAgAAAAQAA=</HashCode>
+      <FileName>Model\Domain\View\Console\NewRequestModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.Note" Collapsed="true">
+    <Position X="0.5" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAgAAAAAAAQAAAAAAAAAABAAAACAAAAAA=</HashCode>
+      <FileName>Model\Domain\View\Console\Note.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.ProjectView" Collapsed="true">
+    <Position X="2.25" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\View\Console\ProjectView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="COMET.Model.Domain.View.Console.RequestView" Collapsed="true">
+    <Position X="4.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgACgAAAAAkAEgAAABBAAAAFAA=</HashCode>
+      <FileName>Model\Domain\View\Console\RequestView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="COMET.Model.Domain.Console.IRequest" Collapsed="true">
+    <Position X="0.5" Y="1.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAIgAAgAAAACAAAAAIAAAAAAAAAAAAIACAAAA=</HashCode>
+      <FileName>Model\Domain\Console\IRequest.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Domain.Console.IEmployee" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAiAAAAAAAAAAgAAAAAAAAAAAAAEgAAAA=</HashCode>
+      <FileName>Model\Domain\Console\IEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Business.Service.Console.IEmployeeSvc" Collapsed="true">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AARgAAAAAAAAAAAIAICAAAAAAAAkAAAAAAAAAECAABA=</HashCode>
+      <FileName>Model\Business\Service\Console\IEmployeeSvc.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Domain.Console.ILookup" Collapsed="true">
+    <Position X="0.5" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\ILookup.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="COMET.Model.Domain.View.Console.IRequestView" Collapsed="true">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAkIAAAgAAAAAAACBEAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\View\Console\IRequestView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="COMET.Model.Domain.Console.EOpenType" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAgACAAAAAAAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Domain\Console\EOpenType.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

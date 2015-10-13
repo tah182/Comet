@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMET", "COMET2\COMET.csproj", "{09176A60-34CD-49F5-B863-A40D3FC67F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMET.Tests", "COMET2.Tests\COMET.Tests.csproj", "{B3A347D6-96A9-465C-888D-8985EC8F3D03}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 3
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tahv.visualstudio.com/defaultcollection
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = COMET2.Tests\\COMET.Tests.csproj
+		SccProjectName1 = COMET2.Tests
+		SccLocalPath1 = COMET2.Tests
+		SccProjectUniqueName2 = COMET2\\COMET.csproj
+		SccProjectName2 = COMET2
+		SccLocalPath2 = COMET2
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09176A60-34CD-49F5-B863-A40D3FC67F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09176A60-34CD-49F5-B863-A40D3FC67F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09176A60-34CD-49F5-B863-A40D3FC67F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09176A60-34CD-49F5-B863-A40D3FC67F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3A347D6-96A9-465C-888D-8985EC8F3D03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3A347D6-96A9-465C-888D-8985EC8F3D03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3A347D6-96A9-465C-888D-8985EC8F3D03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3A347D6-96A9-465C-888D-8985EC8F3D03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

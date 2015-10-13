@@ -1,0 +1,56 @@
+﻿div#search {
+    position: absolute;
+    padding-top: 30px;
+    padding-right: 10px;
+    z-index: 2;
+}
+div#chart_div {
+    float: right;
+    overflow: auto;
+    margin-right: 350px;
+    padding: 0 20px;
+    position: absolute;
+    padding-top: 80px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+div#chart_div table {
+    border-collapse: separate !important;
+}
+div#details_div {
+    position: absolute;
+    width: 300px;
+    padding: 120px 20px 10px 15px;
+    margin-right: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+    border-left: 2px solid #666;
+    box-shadow: -3px 0 5px 1px #999;
+}
+div#details_div > span {
+    font-size: 1.1em;
+    font-weight: 700;
+}
+div#details_div > table {
+    min-width: 280px;
+}
+div.userBox {
+    color: red;
+    font-style: italic;
+}
+div.termed {
+    background-color: rgba(255, 28, 28, 0.2);
+    background-image: none;
+}
+div.selectedUser {
+    border-color: red;
+}
+.google-visualization-orgchart-node {
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.5) 3px 3px 3px;
+    background: linear-gradient(180deg, #edf7ff, #cde7ee);
+}

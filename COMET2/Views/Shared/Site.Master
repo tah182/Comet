@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Views/Shared/WebForm.Master" AutoEventWireup="true" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<asp:Content ID="featureContent" ContentPlaceHolderID="FeaturedContent" runat="server">
+    <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="PageContent" ContentPlaceHolderID="PageTitle" runat="server">
+    <asp:ContentPlaceHolder ID="PageTitle" runat="server" />
+</asp:Content>
+
+<asp:Content ID="headContent" ContentPlaceHolderID="head" runat="server">
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</asp:Content>
+
+<asp:Content ID="titleContent" ContentPlaceHolderID="TitleContent" runat="server">
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="indexContent" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+</asp:Content>
+
+<asp:Content ID="ScriptsContent" ContentPlaceHolderID="ScriptsSection" runat="server">
+    <asp:ContentPlaceHolder ID="jscript" runat="server" />
+</asp:Content>

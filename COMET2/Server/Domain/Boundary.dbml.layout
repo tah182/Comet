@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="Boundary">
+  <DataContextMoniker Name="/BoundaryDataContext" />
+  <nestedChildShapes>
+    <classShape Id="5142f1ed-178f-423d-8c46-00f699d8c970" absoluteBounds="0.5, 0.5, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/BoundaryDataContext/SWC_LKP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fea80b16-142d-455b-a602-2488143e165e" absoluteBounds="0.51499999999999968, 0.96, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="9dd56df8-48d5-45d9-82b5-2576303523f9" absoluteBounds="5.625, 0.875, 2, 1.3862939453125">
+      <DataClassMoniker Name="/BoundaryDataContext/LATA_CENTROID" />
+      <nestedChildShapes>
+        <elementListCompartment Id="0d4665bc-1484-4052-af59-ddebef77024b" absoluteBounds="5.64, 1.335, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="14a00ff9-4bca-4342-9251-1a35fa8d82d5" absoluteBounds="3.375, 2.25, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/BoundaryDataContext/LATA_BOUNDARY_LKP" />
+      <nestedChildShapes>
+        <elementListCompartment Id="debc5d80-2bf5-4ec0-a7fc-f6f2f893ee6d" absoluteBounds="3.3899999999999997, 2.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.625 : 1.56814697265625); (4.375 : 1.56814697265625); (4.375 : 2.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/BoundaryDataContext/LATA_CENTROID/LATA_CENTROID_LATA_BOUNDARY_LKP" />
+      <nodes>
+        <classShapeMoniker Id="9dd56df8-48d5-45d9-82b5-2576303523f9" />
+        <classShapeMoniker Id="14a00ff9-4bca-4342-9251-1a35fa8d82d5" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="37bcb329-ffbd-4da2-b351-9dd66dad250f" absoluteBounds="0.5, 2.625, 2, 1.1939925130208333">
+      <DataClassMoniker Name="/BoundaryDataContext/Level3_RouteMap" />
+      <nestedChildShapes>
+        <elementListCompartment Id="c734eb9b-8fc6-4e3e-bb51-ad1480d1d871" absoluteBounds="0.51500000000000057, 3.085, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,260 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="GAM_Complex_Op" Class="ConsoleDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Table Name="CONSOLE.DIRECTOR" Member="DIRECTORs">
+    <Type Name="DIRECTOR">
+      <Column Name="DIRECTOR_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="SmallDateTime NOT NULL" CanBeNull="false" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="SmallDateTime" CanBeNull="true" />
+      <Association Name="DIRECTOR_GROUP_MANAGER" Member="GROUP_MANAGERs" ThisKey="DIRECTOR_ID" OtherKey="DIRECTOR_ID" Type="GROUP_MANAGER" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.ELEMENT_STATUS" Member="ELEMENT_STATUS">
+    <Type Name="ELEMENT_STATUS">
+      <Column Name="ELEMENT_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ELEMENT_STATUS_TEXT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="ELEMENT_STATUS_ELEMENT" Member="ELEMENTs" ThisKey="ELEMENT_STATUS_ID" OtherKey="ELEMENT_STATUS_ID" Type="ELEMENT" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.EMPLOYEE" Member="EMPLOYEEs">
+    <Type Name="EMPLOYEE">
+      <Column Name="EMPLOYEE_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GROUP_MANAGER_START" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EMPLOYEE_NOTE" Member="NOTEs" ThisKey="EMPLOYEE_ID" OtherKey="UPDATED_BY_ID" Type="NOTE" />
+      <Association Name="EMPLOYEE_SUPPORT_AREA" Member="SUPPORT_AREAs" ThisKey="EMPLOYEE_ID" OtherKey="DEVELOPER_ID" Type="SUPPORT_AREA" />
+      <Association Name="EMPLOYEE_SUPPORT_AREA1" Member="SUPPORT_AREAs1" ThisKey="EMPLOYEE_ID" OtherKey="SUPPORT_ID" Type="SUPPORT_AREA" />
+      <Association Name="GROUP_MANAGER_EMPLOYEE" Member="GROUP_MANAGER" ThisKey="GROUP_MANAGER_START" OtherKey="GROUP_MANAGER_START" Type="GROUP_MANAGER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.GROUP_lkp" Member="GROUP_lkps">
+    <Type Name="GROUP_lkp">
+      <Column Name="GROUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GROUP_TEXT" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="GROUP_lkp_GROUP_MANAGER" Member="GROUP_MANAGERs" ThisKey="GROUP_ID" OtherKey="GROUP_ID" Type="GROUP_MANAGER" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.GROUP_MANAGER" Member="GROUP_MANAGERs">
+    <Type Name="GROUP_MANAGER">
+      <Column Name="GROUP_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="MANAGER_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DIRECTOR_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="START_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="GROUP_MANAGER_START" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Association Name="GROUP_MANAGER_EMPLOYEE" Member="EMPLOYEEs" ThisKey="GROUP_MANAGER_START" OtherKey="GROUP_MANAGER_START" Type="EMPLOYEE" />
+      <Association Name="DIRECTOR_GROUP_MANAGER" Member="DIRECTOR" ThisKey="DIRECTOR_ID" OtherKey="DIRECTOR_ID" Type="DIRECTOR" IsForeignKey="true" />
+      <Association Name="GROUP_lkp_GROUP_MANAGER" Member="GROUP_lkp" ThisKey="GROUP_ID" OtherKey="GROUP_ID" Type="GROUP_lkp" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.NOTE" Member="NOTEs">
+    <Type Name="NOTE">
+      <Column Name="NOTE_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ELEMENT_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="NOTE_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NOTE_TEXT" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="UPDATED_BY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="EMPLOYEE_NOTE" Member="EMPLOYEE" ThisKey="UPDATED_BY_ID" OtherKey="EMPLOYEE_ID" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="ELEMENT_NOTE" Member="ELEMENT" ThisKey="ELEMENT_ID" OtherKey="ELEMENT_ID" Type="ELEMENT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.PROGRAM" Member="PROGRAMs">
+    <Type Name="PROGRAM">
+      <Column Name="PROGRAM_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROGRAM_NAME" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="PROGRAM_REQUEST" Member="REQUESTs" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="REQUEST" />
+      <Association Name="PROGRAM_PROJECT" Member="PROJECTs" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="PROJECT" />
+      <Association Name="PROGRAM_SUPPORT_AREA_TO_PROGRAM" Member="SUPPORT_AREA_TO_PROGRAMs" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="SUPPORT_AREA_TO_PROGRAM" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.PROJECT_STATUS" Member="PROJECT_STATUS">
+    <Type Name="PROJECT_STATUS">
+      <Column Name="PROJECT_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROJECT_STATUS_TEXT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="PROJECT_STATUS_PROJECT" Member="PROJECTs" ThisKey="PROJECT_STATUS_ID" OtherKey="PROJECT_STATUS_ID" Type="PROJECT" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.REQUEST_STATUS" Member="REQUEST_STATUS">
+    <Type Name="REQUEST_STATUS">
+      <Column Name="REQUEST_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="REQUEST_STATUS_TEXT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="SORT_ORDER" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Association Name="REQUEST_STATUS_REQUEST" Member="REQUESTs" ThisKey="REQUEST_STATUS_ID" OtherKey="REQUEST_STATUS_ID" Type="REQUEST" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.BUSINESS_TYPE" Member="BUSINESS_TYPEs">
+    <Type Name="BUSINESS_TYPE">
+      <Column Name="BUSINESS_TYPE_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="BUSINESS_TYPE_TEXT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="BUSINESS_OWNER_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="BUSINESS_TYPE_SUPPORT_AREA" Member="SUPPORT_AREAs" ThisKey="BUSINESS_TYPE_ID" OtherKey="BUSINESS_TYPE_ID" Type="SUPPORT_AREA" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.SUPPORT_AREA" Member="SUPPORT_AREAs">
+    <Type Name="SUPPORT_AREA">
+      <Column Name="SUPPORT_AREA_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUPPORT_AREA_TEXT" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="SUPPORT_UNIT_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="BUSINESS_TYPE_ID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SUPPORT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEVELOPER_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="SUPPORT_AREA_REQUEST" Member="REQUESTs" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="REQUEST" />
+      <Association Name="SUPPORT_AREA_PROJECT" Member="PROJECTs" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="PROJECT" />
+      <Association Name="SUPPORT_AREA_SUPPORT_AREA_TO_PROGRAM" Member="SUPPORT_AREA_TO_PROGRAMs" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="SUPPORT_AREA_TO_PROGRAM" />
+      <Association Name="BUSINESS_TYPE_SUPPORT_AREA" Member="BUSINESS_TYPE" ThisKey="BUSINESS_TYPE_ID" OtherKey="BUSINESS_TYPE_ID" Type="BUSINESS_TYPE" IsForeignKey="true" />
+      <Association Name="EMPLOYEE_SUPPORT_AREA" Member="EMPLOYEE" ThisKey="DEVELOPER_ID" OtherKey="EMPLOYEE_ID" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="EMPLOYEE_SUPPORT_AREA1" Member="EMPLOYEE1" ThisKey="SUPPORT_ID" OtherKey="EMPLOYEE_ID" Type="EMPLOYEE" IsForeignKey="true" />
+      <Association Name="SUPPORT_UNIT_SUPPORT_AREA" Member="SUPPORT_UNIT" ThisKey="SUPPORT_UNIT_ID" OtherKey="SUPPORT_UNIT_ID" Type="SUPPORT_UNIT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.SUPPORT_UNIT" Member="SUPPORT_UNITs">
+    <Type Name="SUPPORT_UNIT">
+      <Column Name="SUPPORT_UNIT_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUPPORT_UNIT_TEXT" Type="System.String" DbType="VarChar(200) NOT NULL" CanBeNull="false" />
+      <Association Name="SUPPORT_UNIT_SUPPORT_AREA" Member="SUPPORT_AREAs" ThisKey="SUPPORT_UNIT_ID" OtherKey="SUPPORT_UNIT_ID" Type="SUPPORT_AREA" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.REQUEST" Member="REQUESTs">
+    <Type Name="REQUEST">
+      <Column Name="REQUEST_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ASSIGNED_TO_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUBMITTED_BY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="REQUESTED_BY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="REQUEST_TYPE_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="REQUEST_CATEGORY_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUPPORT_AREA_ID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PARENT_PROJECT_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PROGRAM_ID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="VALUE_DRIVER_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="REQUEST_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUBMITTED_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="REQUESTED_DUE_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ESTIMATED_DUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MANAGER_QUEUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MANAGER_APPROVED_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HOLD_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RESUME_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CLOSED_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LAST_UPDATED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ESTIMATED_HOURS" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="VALUE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ESTIMATED_COST" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="REQUEST_SUMMARY" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="REQUEST_DESCRIPTION" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="RESOLUTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="VALUE_REASON" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="IT_FEATURE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="TOP_OFFNET_ATTRIBUTE_NUMBER" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="MANAGER_NOTE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Association Name="REQUEST_ELEMENT" Member="ELEMENTs" ThisKey="REQUEST_ID" OtherKey="PARENT_REQUEST_ID" Type="ELEMENT" />
+      <Association Name="PROGRAM_REQUEST" Member="PROGRAM" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="PROGRAM" IsForeignKey="true" />
+      <Association Name="REQUEST_STATUS_REQUEST" Member="REQUEST_STATUS" ThisKey="REQUEST_STATUS_ID" OtherKey="REQUEST_STATUS_ID" Type="REQUEST_STATUS" IsForeignKey="true" />
+      <Association Name="SUPPORT_AREA_REQUEST" Member="SUPPORT_AREA" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="SUPPORT_AREA" IsForeignKey="true" />
+      <Association Name="REQUEST_TYPE_REQUEST" Member="REQUEST_TYPE" ThisKey="REQUEST_TYPE_ID" OtherKey="REQUEST_TYPE_ID" Type="REQUEST_TYPE" IsForeignKey="true" />
+      <Association Name="REQUEST_CATEGORY_REQUEST" Member="REQUEST_CATEGORY" ThisKey="REQUEST_CATEGORY_ID" OtherKey="REQUEST_CATEGORY_ID" Type="REQUEST_CATEGORY" IsForeignKey="true" />
+      <Association Name="VALUE_DRIVER_REQUEST" Member="VALUE_DRIVER" ThisKey="VALUE_DRIVER_ID" OtherKey="VALUE_DRIVER_ID" Type="VALUE_DRIVER" IsForeignKey="true" />
+      <Association Name="PROJECT_REQUEST" Member="PROJECT" ThisKey="PARENT_PROJECT_ID" OtherKey="PROJECT_ID" Type="PROJECT" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.ELEMENT" Member="ELEMENTs">
+    <Type Name="ELEMENT">
+      <Column Name="ELEMENT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ASSIGNED_TO_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PARENT_REQUEST_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ELEMENT_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="ASSIGNED_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="CLOSED_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LAST_UPDATED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="PERCENT_COMPLETE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="HOURS" Type="System.Decimal" DbType="Decimal(18,2) NOT NULL" CanBeNull="false" />
+      <Column Name="ELEMENT_SUMMARY" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="RESOLUTION" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="ELEMENT_NOTE" Member="NOTEs" ThisKey="ELEMENT_ID" OtherKey="ELEMENT_ID" Type="NOTE" />
+      <Association Name="ELEMENT_STATUS_ELEMENT" Member="ELEMENT_STATUS" ThisKey="ELEMENT_STATUS_ID" OtherKey="ELEMENT_STATUS_ID" Type="ELEMENT_STATUS" IsForeignKey="true" />
+      <Association Name="REQUEST_ELEMENT" Member="REQUEST" ThisKey="PARENT_REQUEST_ID" OtherKey="REQUEST_ID" Type="REQUEST" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.REQUEST_TYPE" Member="REQUEST_TYPEs">
+    <Type Name="REQUEST_TYPE">
+      <Column Name="REQUEST_TYPE_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="REQUEST_TYPE_TEXT" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="REQUEST_TYPE_REQUEST" Member="REQUESTs" ThisKey="REQUEST_TYPE_ID" OtherKey="REQUEST_TYPE_ID" Type="REQUEST" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.REQUEST_CATEGORY" Member="REQUEST_CATEGORies">
+    <Type Name="REQUEST_CATEGORY">
+      <Column Name="REQUEST_CATEGORY_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="REQUEST_CATEGORY_TEXT" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="REQUEST_CATEGORY_REQUEST" Member="REQUESTs" ThisKey="REQUEST_CATEGORY_ID" OtherKey="REQUEST_CATEGORY_ID" Type="REQUEST" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.PROJECT_TYPE" Member="PROJECT_TYPEs">
+    <Type Name="PROJECT_TYPE">
+      <Column Name="PROJECT_TYPE_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PROJECT_TYPE_TEXT" Type="System.String" DbType="VarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="ACTIVE" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="PROJECT_TYPE_PROJECT" Member="PROJECTs" ThisKey="PROJECT_TYPE_ID" OtherKey="PROJECT_TYPE_ID" Type="PROJECT" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.VALUE_DRIVER" Member="VALUE_DRIVERs">
+    <Type Name="VALUE_DRIVER">
+      <Column Name="VALUE_DRIVER_ID" Type="System.Int16" DbType="SmallInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="VALUE_DRIVER_TEXT" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="COMMENT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="VALUE_DRIVER_REQUEST" Member="REQUESTs" ThisKey="VALUE_DRIVER_ID" OtherKey="VALUE_DRIVER_ID" Type="REQUEST" />
+      <Association Name="VALUE_DRIVER_PROJECT" Member="PROJECTs" ThisKey="VALUE_DRIVER_ID" OtherKey="VALUE_DRIVER_ID" Type="PROJECT" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.PROJECT" Member="PROJECTs">
+    <Type Name="PROJECT">
+      <Column Name="PROJECT_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="SUBMITTED_BY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="REQUESTED_BY_ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="PROJECT_TYPE_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUPPORT_AREA_ID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PROGRAM_ID" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="VALUE_DRIVER_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="PROJECT_STATUS_ID" Type="System.Byte" DbType="TinyInt NOT NULL" CanBeNull="false" />
+      <Column Name="SUBMITTED_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="REQUESTED_DUE_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ESTIMATED_DUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MANAGER_QUEUE_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MANAGER_APPROVED_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="HOLD_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="RESUME_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CLOSED_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="LAST_UPDATED_DATE" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ESTIMATED_HOURS" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="VALUE" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ESTIMATED_COST" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="ACTUAL_COST" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="PROJECT_SUMMARY" Type="System.String" DbType="VarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="PROJECT_DESCRIPTION" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="VALUE_REASON" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="MANAGER_NOTE" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="PROJECT_LEAD_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="START_DATE" Storage="_start_date" Type="System.DateTime" DbType="Date" CanBeNull="false" />
+      <Association Name="PROJECT_REQUEST" Member="REQUESTs" ThisKey="PROJECT_ID" OtherKey="PARENT_PROJECT_ID" Type="REQUEST" />
+      <Association Name="PROGRAM_PROJECT" Member="PROGRAM" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="PROGRAM" IsForeignKey="true" />
+      <Association Name="PROJECT_STATUS_PROJECT" Member="PROJECT_STATUS" ThisKey="PROJECT_STATUS_ID" OtherKey="PROJECT_STATUS_ID" Type="PROJECT_STATUS" IsForeignKey="true" />
+      <Association Name="PROJECT_TYPE_PROJECT" Member="PROJECT_TYPE" ThisKey="PROJECT_TYPE_ID" OtherKey="PROJECT_TYPE_ID" Type="PROJECT_TYPE" IsForeignKey="true" />
+      <Association Name="SUPPORT_AREA_PROJECT" Member="SUPPORT_AREA" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="SUPPORT_AREA" IsForeignKey="true" />
+      <Association Name="VALUE_DRIVER_PROJECT" Member="VALUE_DRIVER" ThisKey="VALUE_DRIVER_ID" OtherKey="VALUE_DRIVER_ID" Type="VALUE_DRIVER" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="CONSOLE.SUPPORT_AREA_TO_PROGRAM" Member="SUPPORT_AREA_TO_PROGRAMs">
+    <Type Name="SUPPORT_AREA_TO_PROGRAM">
+      <Column Name="SUPPORT_AREA_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="PROGRAM_ID" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Association Name="PROGRAM_SUPPORT_AREA_TO_PROGRAM" Member="PROGRAM" ThisKey="PROGRAM_ID" OtherKey="PROGRAM_ID" Type="PROGRAM" IsForeignKey="true" />
+      <Association Name="SUPPORT_AREA_SUPPORT_AREA_TO_PROGRAM" Member="SUPPORT_AREA" ThisKey="SUPPORT_AREA_ID" OtherKey="SUPPORT_AREA_ID" Type="SUPPORT_AREA" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
