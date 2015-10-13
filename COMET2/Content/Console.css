@@ -7,10 +7,10 @@
   font-style: normal;
 }
 .invalid {
-  color: red;
+  color: #f00;
 }
 .valid {
-  color: green;
+  color: #aa0;
 }
 .pointer {
   cursor: pointer;
